@@ -1,0 +1,144 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+    
+   <bean name="p1" class="com.epsilon.bookorders.publisher">
+    
+    <property name="publisherId">
+			<value>P73355</value>
+		</property>
+
+		<property name="publisherName">
+			<value>Penguin Books</value>
+		</property>
+		
+		<property name="publisherLocation">
+			<value>India</value>
+		</property>
+		
+		
+	</bean>
+	
+	<bean name="p2" class="com.epsilon.bookorders.publisher">
+
+		<property name="publisherId">
+			<value>P73356</value>
+		</property>
+
+		<property name="publisherName">
+			<value>Harper Collins</value>
+		</property>
+		
+		<property name="publisherLocation">
+			<value>India</value>
+		</property>
+		
+		
+	</bean>
+	
+	<bean name="a1" class="com.epsilon.bookorders.author">
+
+		<property name="authorId">
+			<value>A263</value>
+		</property>
+
+		<property name="authorName">
+			<value>Nora Roberts</value>
+		</property>
+		
+	</bean>
+	
+	<bean name="a2" class="com.epsilon.bookorders.author">
+
+		<property name="authorId">
+			<value>A264</value>
+		</property>
+
+		<property name="authorName">
+			<value>Paulo Coelho</value>
+		</property>
+		
+	</bean>
+    
+    <bean name="b1" class="com.epsilon.bookorders.book">
+
+		<property name="bookId">
+			<value>B3599</value>
+		</property>
+
+		<property name="bookName">
+			<value>Three Fates</value>
+		</property>
+		
+		<property name="pb">
+			<ref bean="p1"/>
+		</property>
+		
+		<property name="atr">
+			<ref bean="a1"/>
+		</property>
+
+	</bean>
+	
+	<bean name="b2" class="com.epsilon.bookorders.book">
+
+		<property name="bookId">
+			<value>B4298</value>
+		</property>
+
+		<property name="bookName">
+			<value>The Alchemist</value>
+		</property>
+		
+		<property name="pb">
+			<ref bean="p2"/>
+		</property>
+		
+		<property name="atr">
+			<ref bean="a2"/>
+		</property>
+
+	</bean>
+
+	<bean name="c1" class="com.epsilon.bookorders.customer">
+
+		<property name="customerId">
+			<value>C9980</value>
+		</property>
+
+		<property name="customerName">
+			<value>Robert Downey Jr.</value>
+		</property>
+		
+	</bean>
+	
+	<bean name="o1" class="com.epsilon.bookorders.orders">
+
+		<property name="orderId">
+			<value>O237605</value>
+		</property>
+
+		<property name="ctmr">
+			<ref bean="c1"/>
+		</property>
+		
+		<property name="orderItems">
+			<list>
+				<ref bean="b1" />
+				<ref bean="b2" />
+			</list>
+		</property>
+		
+	</bean>
+	
+    
+    
+    
+    
+</beans>

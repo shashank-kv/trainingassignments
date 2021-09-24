@@ -1,0 +1,144 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+    
+    <bean name="p1" class="com.epsilon.ordersconstructor.publisher">
+
+		<constructor-arg name="publisherId">
+			<value>P73355</value>
+		</constructor-arg>
+
+		<constructor-arg name="publisherName">
+			<value>Penguin Books</value>
+		</constructor-arg>
+		
+		<constructor-arg name="publisherLocation">
+			<value>India</value>
+		</constructor-arg>
+		
+		
+	</bean>
+	
+	<bean name="p2" class="com.epsilon.ordersconstructor.publisher">
+
+		<constructor-arg name="publisherId">
+			<value>P73356</value>
+		</constructor-arg>
+
+		<constructor-arg name="publisherName">
+			<value>Harper Collins</value>
+		</constructor-arg>
+		
+		<constructor-arg name="publisherLocation">
+			<value>India</value>
+		</constructor-arg>
+		
+		
+	</bean>
+	
+	<bean name="a1" class="com.epsilon.ordersconstructor.author">
+
+		<constructor-arg name="authorId">
+			<value>A263</value>
+		</constructor-arg>
+
+		<constructor-arg name="authorName">
+			<value>Nora Roberts</value>
+		</constructor-arg>
+		
+	</bean>
+	
+	<bean name="a2" class="com.epsilon.ordersconstructor.author">
+
+		<constructor-arg name="authorId">
+			<value>A264</value>
+		</constructor-arg>
+
+		<constructor-arg name="authorName">
+			<value>Paulo Coelho</value>
+		</constructor-arg>
+		
+	</bean>
+    
+    <bean name="b1" class="com.epsilon.ordersconstructor.book">
+
+		<constructor-arg name="bookId">
+			<value>B3599</value>
+		</constructor-arg>
+
+		<constructor-arg name="bookName">
+			<value>Three Fates</value>
+		</constructor-arg>
+		
+		<constructor-arg name="pb">
+			<ref bean="p1"/>
+		</constructor-arg>
+		
+		<constructor-arg name="atr">
+			<ref bean="a1"/>
+		</constructor-arg>
+
+	</bean>
+	
+	<bean name="b2" class="com.epsilon.ordersconstructor.book">
+
+		<constructor-arg name="bookId">
+			<value>B4298</value>
+		</constructor-arg>
+
+		<constructor-arg name="bookName">
+			<value>The Alchemist</value>
+		</constructor-arg>
+		
+		<constructor-arg name="pb">
+			<ref bean="p2"/>
+		</constructor-arg>
+		
+		<constructor-arg name="atr">
+			<ref bean="a2"/>
+		</constructor-arg>
+
+	</bean>
+
+	<bean name="c1" class="com.epsilon.ordersconstructor.customer">
+
+		<constructor-arg name="customerId">
+			<value>C9980</value>
+		</constructor-arg>
+
+		<constructor-arg name="customerName">
+			<value>Robert Downey Jr.</value>
+		</constructor-arg>
+		
+	</bean>
+	
+	<bean name="o1" class="com.epsilon.ordersconstructor.orders">
+
+		<constructor-arg name="orderId">
+			<value>O237605</value>
+		</constructor-arg>
+
+		<constructor-arg name="ctmr">
+			<ref bean="c1"/>
+		</constructor-arg>
+		
+		<constructor-arg name="orderItems">
+			<list>
+				<ref bean="b1" />
+				<ref bean="b2" />
+			</list>
+		</constructor-arg>
+		
+	</bean>
+	
+		
+		
+    
+    
+</beans>
